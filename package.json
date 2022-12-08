@@ -1,0 +1,17 @@
+{
+  "name": "@giant-quid/root",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "examples/*",
+      "packages/*",
+      "ui-packages/*"
+    ]
+  },
+  "devDependencies": {
+    "lerna": "^6.0.3"
+  }
+}

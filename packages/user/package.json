@@ -1,0 +1,23 @@
+{
+  "name": "@giant-quid/user",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --build && sh scripts/moveFiles.sh",
+    "build:cleanup": "sh scripts/cleanup.sh",
+    "deploy:prod": "yarn build && export AWS_PROFILE=default && sls -s prod deploy ",
+    "deploy": "yarn build && export AWS_PROFILE=default && yes | sls -s dev deploy && yarn build:cleanup",
+    "deploy:function": "yarn build && export AWS_PROFILE=default && sls deploy -s dev function",
+    "deploy:prod:function": "yarn build && export AWS_PROFILE=default && sls -s prod deploy function"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.104",
+    "serverless-plugin-common-excludes": "^4.0.0",
+    "serverless-plugin-include-dependencies": "^5.0.0",
+    "typescript": "^4.8.3"
+  }
+}

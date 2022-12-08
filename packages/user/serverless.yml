@@ -1,0 +1,67 @@
+service: user
+plugins:
+  - serverless-plugin-common-excludes
+  - serverless-plugin-include-dependencies
+frameworkVersion: "3"
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: ${opt:stage, 'dev'}
+  region: us-east-1
+  apiGateway:
+    restApiId: ${cf:api-${self:provider.stage}.ApiGatewayRestApiId}
+    restApiRootResourceId: ${cf:api-${self:provider.stage}.ApiGatewayRestApiResourceId}
+package:
+  individually: true
+  patterns:
+    - "!node_modules/**"
+    - "!node_modules/**/src/**"
+    - "!src/**"
+    - "!scripts/**"
+    - "!dist/**"
+    - "!layers/**"
+    - "!database/**"
+    - "!schema.prisma"
+    - "!tsconfig.json"
+    - "!tslint.json"
+    - prisma/**
+    - node_modules/.prisma/**
+functions:
+  hello:
+    handler: dist/endpoints/hello/world.handler
+    package:
+      patterns:
+        - dist/endpoints/hello/world.js
+    events:
+      - http:
+          path: /hello/world
+          method: get
+  asd:
+    handler: dist/endpoints/asd/asd.handler
+    package:
+      patterns:
+        - dist/endpoints/asd/asd.js
+    events:
+      - http:
+          path: /asd/asd
+          method: post
+  add:
+    handler: dist/endpoints/user/add.handler
+    package:
+      patterns:
+        - dist/endpoints/user/add.js
+    events:
+      - http:
+          path: /user/add
+          method: post
+          cors: true
+  asdAsd:
+    handler: dist/endpoints/asd/asd.handler
+    package:
+      patterns:
+        - dist/endpoints/asd/asd.js
+    events:
+      - http:
+          path: /asd/asd
+          method: ""
+          cors: true
