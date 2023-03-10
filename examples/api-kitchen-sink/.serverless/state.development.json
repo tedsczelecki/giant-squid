@@ -1,0 +1,12 @@
+{
+  "service": {
+    "id": "y2fgb4"
+  },
+  "components": {
+    "restApi": {
+      "state": {
+        "detectedFrameworkVersion": "3.22.0"
+      }
+    }
+  }
+}

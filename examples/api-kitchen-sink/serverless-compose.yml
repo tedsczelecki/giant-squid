@@ -1,0 +1,11 @@
+services:
+  crud:
+    path: /Users/tedsczelecki/Documents/projects/giant-squid/packages/crud
+    dependsOn:
+      - restApi
+  restApi:
+    path: /Users/tedsczelecki/Documents/projects/giant-squid/packages/rest-api
+  user:
+    path: /Users/tedsczelecki/Documents/projects/giant-squid/packages/user
+    dependsOn:
+      - restApi

@@ -1,0 +1,27 @@
+{
+  "service": {
+    "id": "eb30gf"
+  },
+  "components": {
+    "restApi": {
+      "state": {
+        "detectedFrameworkVersion": "3.22.0"
+      },
+      "outputs": {
+        "ApiGatewayRestApiId": "4f606cgs62",
+        "ApiGatewayRestApiResourceId": "7kwbpiy4bg",
+        "ServerlessDeploymentBucketName": "restapi-dev-serverlessdeploymentbucket-xwd1qxo0d8l8"
+      }
+    },
+    "crud": {
+      "state": {
+        "detectedFrameworkVersion": "3.22.0"
+      }
+    },
+    "user": {
+      "state": {
+        "detectedFrameworkVersion": "3.22.0"
+      }
+    }
+  }
+}

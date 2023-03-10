@@ -1,12 +1,13 @@
-import { Box, HStack, useToken, VStack } from '@chakra-ui/react';
+import { Box, HStack, VStack } from '@chakra-ui/react';
 import React from 'react';
 
 interface Props {
   children: React.ReactNode;
+  from?: string;
+  to?: string;
 }
 
-export const AuthLayout = ({ children }: Props) => {
-  const [from, to] = useToken('colors', ['primary.600', 'primary.900']);
+export const AuthLayout = ({ children, from, to }: Props) => {
   return (
     <HStack
       height="100vh"

@@ -1,0 +1,7 @@
+{
+  "packages": [
+    "@giant-squid/crud",
+    "@giant-squid/rest-api",
+    "@giant-squid/user"
+  ]
+}

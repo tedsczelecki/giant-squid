@@ -9,8 +9,9 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: us-east-1
   apiGateway:
-    restApiId: ${cf:api-${self:provider.stage}.ApiGatewayRestApiId}
-    restApiRootResourceId: ${cf:api-${self:provider.stage}.ApiGatewayRestApiResourceId}
+    restApiId: ${cf:restApi-${self:provider.stage}.ApiGatewayRestApiId}
+    restApiRootResourceId: ${cf:restApi-${self:provider.stage}.ApiGatewayRestApiResourceId}
+
 package:
   individually: true
   patterns:
@@ -36,32 +37,3 @@ functions:
       - http:
           path: /hello/world
           method: get
-  asd:
-    handler: dist/endpoints/asd/asd.handler
-    package:
-      patterns:
-        - dist/endpoints/asd/asd.js
-    events:
-      - http:
-          path: /asd/asd
-          method: post
-  add:
-    handler: dist/endpoints/user/add.handler
-    package:
-      patterns:
-        - dist/endpoints/user/add.js
-    events:
-      - http:
-          path: /user/add
-          method: post
-          cors: true
-  asdAsd:
-    handler: dist/endpoints/asd/asd.handler
-    package:
-      patterns:
-        - dist/endpoints/asd/asd.js
-    events:
-      - http:
-          path: /asd/asd
-          method: ""
-          cors: true

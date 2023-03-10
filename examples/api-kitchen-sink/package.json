@@ -1,0 +1,17 @@
+{
+  "name": "@giant-squid/api-kitchen-sink",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "echo \"No build necessary\"",
+    "deploy": "export AWS_PROFILE=sandbox && sls deploy --stage dev"
+  },
+  "dependencies": {
+    "@giant-squid/crud": "^1.0.0",
+    "@giant-squid/rest-api": "^1.0.0",
+    "@giant-squid/user": "^1.0.0",
+    "@serverless/compose": "^1.3.0"
+  }
+}
